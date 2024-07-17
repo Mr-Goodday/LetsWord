@@ -1,0 +1,374 @@
+/* ================================================================================================= importy */
+
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+
+
+/* ================================================================================================== resety */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--fontColor1);
+    cursor: default;
+    transition: .1s;
+}
+
+*:focus {
+    outline: none;
+}
+
+:root {
+    --fontColor1: #222;
+
+    --color1: #F29550;
+    --color2: #FC8353;
+    --color3: #E66A57;
+    --color4: #FC535B;
+    --color5: #F250A8;
+
+    --color6: #f0f0f7;
+    --color7: #b0b0b7;
+    --color8: #ffffff80;
+
+    --gradient1: linear-gradient(165deg, var(--color2), var(--color3));
+    --gradient2: linear-gradient(135deg, var(--color5), var(--color4), var(--color5));
+
+    --border1: 1px solid var(--color3);
+    --border2: 1px solid #222;
+    --border3: 1px solid var(--color4);
+
+    --shadow1: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    --shadow2: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    --shadow3: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    --shadow4: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    --shadow5: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+
+    --navActive: 400px;
+}
+
+html {
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    scroll-behavior: smooth;
+}
+
+body {
+    position: relative;
+    overflow-x: hidden;
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 100px;
+    background-image: url(../img/LetsWordBg.png), linear-gradient(135deg, var(--color6), var(--color7));
+    background-position: top;
+    /* background-size: cover; */
+    font-family: 'Titillium Web', sans-serif;
+}
+
+body::before {
+    content: " ";
+    z-index: 5;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    opacity: 1;
+    background-image: linear-gradient(-45deg, var(--color1), var(--color2), var(--color3), var(--color4), var(--color5));
+    transition: .2s;
+}
+
+a,
+input,
+textarea,
+ion-icon {
+    resize: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/*===========================================SCROLL_BAR */
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+::-webkit-scrollbar-track {
+    display: none;
+}
+
+::-webkit-scrollbar-thumb {
+    display: none;
+}
+
+/* =========================================================================================== scroll viewer */
+
+#scroll-viewer {
+    position: absolute;
+    top: -9px;
+    left: 0;
+    height: 8px;
+    width: 100vw;
+    background: var(--gradient2);
+    scale: 0 1;
+    animation: scroll-view linear;
+    animation-timeline: scroll();
+    transform-origin: left;
+}
+
+/*===========================================HEADER */
+
+header {
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 91px;
+    border-top: 9px solid var(--color2);
+}
+
+header>div:not(#scroll-viewer) {
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+    padding-bottom: 9px;
+    background-color: var(--color2);
+    box-shadow: var(--shadow5);
+    border-bottom-right-radius: 50px;
+}
+
+header>div:nth-child(3) {
+    padding-left: 100px;
+    border-radius: 0 !important;
+    border-bottom-left-radius: 50px !important;
+}
+
+/*===========================================LOGO */
+
+#logo {
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    padding: 32px;
+}
+
+#logo>h1 {
+    font-size: 32px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+#logo>img {
+    cursor: pointer;
+}
+
+/*===========================================NAV-BTN */
+
+#navBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100px;
+    border-bottom-right-radius: 50px;
+}
+
+#navBtn>ion-icon {
+    padding: 8px;
+    font-size: 32px;
+}
+
+/*===========================================TIME-COUNTER */
+
+#timeCounter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+/*===========================================USER */
+
+#User {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    right: 0;
+    height: 100%;
+    padding: 7px 16px;
+    gap: 16px;
+
+}
+
+#User>#-prof {
+    aspect-ratio: 1;
+    height: 100%;
+    border: var(--border1);
+    border-radius: 50%;
+    background-color: var(--color1);
+}
+
+/*===========================================NAV */
+
+nav {
+    z-index: 1;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    bottom: 0;
+    left: 0;
+    height: calc(100vh - 91px);
+    width: var(--navActive);
+    padding: 16px;
+    background-image: var(--gradient1);
+    box-shadow: var(--shadow2);
+    animation: growRight .01s ease-in-out forwards;
+    transform-origin: left;
+}
+
+nav>ul {
+    height: 100%;
+    width: 100%;
+    list-style: none;
+    border-top: var(--border1);
+}
+
+.list {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    width: 100%;
+    padding: 16px 0;
+    border-bottom: var(--border1);
+}
+
+.list>ion-icon {
+    font-size: 32px;
+}
+
+.list>a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding-left: 4px;
+    gap: 8px;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -.5px;
+}
+
+.list>a:hover,
+.list>a.active {
+    backdrop-filter: brightness(115%);
+}
+
+.list>a>ion-icon:first-child {
+    font-size: 32px;
+}
+
+/*===========================================DROP_CONTENT */
+
+.drop_down {
+    flex-direction: column;
+    border: none;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.drop_content {
+    display: none;
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+    padding: 8px 0;
+    gap: 8px;
+    animation: growDown .1s ease-in-out forwards;
+    transform-origin: top;
+}
+
+.drop_content>a {
+    padding-left: 48px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.drop_content>a:hover,
+.drop_content>a:hover>ion-icon {
+    backdrop-filter: brightness(115%);
+}
+
+.drop_down:hover .drop_content {
+    display: flex;
+}
+
+/* ================================================================================================== footer */
+
+footer {
+    display: flex;
+    height: auto;
+    width: 100%;
+}
+
+footer>a {
+    width: calc(100% / 3);
+    padding-block: 4px;
+    border-top: var(--border2); border-right: var(--border2);
+    font-size: 16px;
+    text-align: center;
+}
+
+footer>a:last-child {
+    border-right: none;
+}
+
+footer>a>ion-icon {
+    font-size: 24px;
+    transform: translate(-4px, 4px);
+}
+
+/* ==================================================================================================== main */
+
+main {
+    margin-left: var(--navActive);
+    min-height: calc(100vh - 100px);
+}
+
+/* ================================================================================================ animacje */
+
+@keyframes growDown {
+    0% {
+        transform: scaleY(0)
+    }
+
+    100% {
+        transform: scaleY(1)
+    }
+}
+
+@keyframes growRight {
+    0% {
+        transform: scaleX(0)
+    }
+
+    100% {
+        transform: scaleX(1)
+    }
+}
+
+@keyframes scroll-view {
+    from {
+        scale: 0 1;
+    }
+
+    to {
+        scale: 1 1;
+    }
+}
